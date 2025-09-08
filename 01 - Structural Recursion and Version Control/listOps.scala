@@ -1,16 +1,18 @@
 package recursion
 
-def length(l: IntList): Int =
-  ???
+def length(l: IntList): Int = 
+    if l.isEmpty then 0 else length(l.tail)
 
+// please recheck
 def allPositiveOrZero(l: IntList): Boolean =
-  ???
+    if l.isEmpty then true else (if l.head <=0 then false else allPositiveOrZero(l.tail))
 
 def countPositive(l: IntList): Int =
-  ???
+    def isHeadPositive = if l.head > 0 then 1 else 0
+    if l.isEmpty then 0 else isHeadPositive + countPositive(l.tail)
 
 def sum(l: IntList): Int =
-  ???
+    if l.isEmpty then 0 else l.head + sum(l.tail)
 
 def product(l: IntList): Int =
   ???
