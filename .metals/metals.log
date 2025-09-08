@@ -2730,3 +2730,5 @@ Sep 08, 2025 3:32:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellat
 WARNING: Unmatched cancel notification for request id 1912
 Sep 08, 2025 3:32:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
 WARNING: Unmatched cancel notification for request id 2280
+2025.09.08 15:41:04 INFO  compiling cs-214-excercises_4eaa004db2 (13 scala sources)[0m
+2025.09.08 15:41:08 INFO  time: compiled CS-214-excercises_4eaa004db2 in 3.77s[0m
