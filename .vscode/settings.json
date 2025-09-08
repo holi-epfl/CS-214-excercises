@@ -1,8 +1,0 @@
-{
-    "files.watcherExclude": {
-        "**/target": true
-    },
-    "metals.excludedPackages": [
-        "exercises.**" // This excludes all packages starting with "exercises."
-    ]
-}
