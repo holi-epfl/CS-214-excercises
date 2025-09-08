@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://cs-214.epfl.ch/exercises/week/1/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="robots" content="noindex">
+  <title>Week 1: Structural Recursion and Version Control</title>
+  <link rel="stylesheet" href="./Week 1_ Structural Recursion and Version Control_files/github.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./Week 1_ Structural Recursion and Version Control_files/katex.min.css">
+  <link rel="stylesheet" href="./Week 1_ Structural Recursion and Version Control_files/style.css">
+  <link rel="stylesheet" href="./Week 1_ Structural Recursion and Version Control_files/fonts.css">
+  <link rel="license" href="https://cs-214.epfl.ch/copyright.html">
+  <link rel="icon" href="https://cs-214.epfl.ch/favicon.png">
+</head>
+<body>
+<div id="container">
+<main>
+<nav class="breadcrumb"><ol>
+          <li><a href="https://cs-214.epfl.ch/">CS-214</a></li>
+          <li>Exercises</li><li>Week</li>
+          <li>Week 1: Structural Recursion and Version Control</li>
+      </ol></nav>
+      
+<p class="updated" id="updated">Last updated on <time datetime="2025-09-07T23:11:34">Sunday, September 07, 2025</time></p>
+	<input type="checkbox" id="toc-toggle">
+	<label for="toc-toggle" id="toc-label"><span>On this page</span></label>
+	<nav id="toc"><ul><li><a href="https://cs-214.epfl.ch/exercises/week/1/#week-1-structural-recursion-and-version-control">Week 1: Structural Recursion and Version Control</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#structural-recursion">Structural Recursion</a><ul><li><a href="https://cs-214.epfl.ch/exercises/week/1/#recursion-on-lists">Recursion on lists</a><ul><li><a href="https://cs-214.epfl.ch/exercises/week/1/#length-">length ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#allpositiveorzero-">allPositiveOrZero ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#countpositive">countPositive</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#sum">sum</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#product">product</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#anyodd">anyOdd</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#decrement">decrement</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#collecteven-">collectEven ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#min">min</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#increment-">increment ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#subtract">subtract</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#removeodd-">removeOdd ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#counteven">countEven</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#multiplyby2">multiplyBy2</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#anynegative">anyNegative</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#alleven">allEven</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#multiplyodd">multiplyOdd</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#horner-">horner ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#capat0">capAt0</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#removezeroes">removeZeroes</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#reverseappend">reverseAppend</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#reverse-">reverse ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#takewhilepositive">takeWhilePositive</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#append">append</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#collectmultiples">collectMultiples</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#last">last</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#init">init</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#minmax-">minMax ⭐️</a></li></ul></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#lists-as-sets">Lists as sets</a><ul><li><a href="https://cs-214.epfl.ch/exercises/week/1/#contains-">contains ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#issubset">isSubset</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#intersection">intersection</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#difference-">difference ⭐️</a></li></ul></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#recursion-on-trees">Recursion on trees</a><ul><li><a href="https://cs-214.epfl.ch/exercises/week/1/#treesize">treeSize</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#treedepth-">treeDepth ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#treesum-">treeSum 🧪</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#treealleven">treeAllEven</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#treeincrement-">treeIncrement ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#treeshow-">treeShow 🧪</a></li></ul></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#recursion-on-strings">Recursion on Strings</a><ul><li><a href="https://cs-214.epfl.ch/exercises/week/1/#stringlength">stringLength</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#capitalizestring">capitalizeString</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#isblank">isBlank</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#wordcount-">wordCount ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#caesarcipher-">caesarCipher ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#reversestring-">reverseString ⭐️</a></li></ul></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#polish-notation-">Polish Notation 🔥</a></li></ul></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#git-i-single-user-version-control">Git I: Single-user version control</a><ul><li><a href="https://cs-214.epfl.ch/exercises/week/1/#browsing-documentation">Browsing documentation</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#configuration-">Configuration ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#reproducing-the-first-git-demo">Reproducing the first Git demo</a><ul><li><a href="https://cs-214.epfl.ch/exercises/week/1/#browsing-history">Browsing history</a></li></ul></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#tracking-history-and-creating-patches-">Tracking history and creating patches ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#exploring-large-codebases-">Exploring large codebases ⭐️</a></li><li><a href="https://cs-214.epfl.ch/exercises/week/1/#being-a-good-gitizen">Being a good Gitizen</a></li></ul></li></ul></nav>
+<h1><a href="https://cs-214.epfl.ch/exercises/week/1/#week-1-structural-recursion-and-version-control" id="week-1-structural-recursion-and-version-control">Week 1: Structural Recursion and Version Control</a></h1>
+<p>Welcome to the first exercise session of CS-214, <em>Software Construction</em>!</p>
+<p>Exercise sessions are meant to be done together in groups, on whiteboards, on blackboards, or on paper. Read more in the <a href="https://cs-214.epfl.ch/info/policies/index.html#exercises">course policies</a>.</p>
+<p>For each exercise below, we provide the signature of the functions you need to write. The body is replaced with <code>???</code>: that’s the part you need to come up with!  <em>We strongly recommend that you solve these exercises on paper first</em>.</p>
+<p>Exercises marked with ⭐️ are the most important ones.
+Exercises marked with 🔥 are the most challenging ones.</p>
+<p>You do not need to complete all exercises to succeed in this class, and you do not need to do all exercises in the order they are written.</p>
+<div class="note">
+<p>We strongly encourage you to solve the exercises on paper first, in groups.  After completing a first draft on paper, you may want to check your solutions on your computer. To do so, you can clone the <a href="https://gitlab.epfl.ch/cs214/exercises">course exercises repository</a>.</p>
+</div>
+<h1><a href="https://cs-214.epfl.ch/exercises/week/1/#structural-recursion" id="structural-recursion">Structural Recursion</a></h1>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#recursion-on-lists" id="recursion-on-lists">Recursion on lists</a></h2>
+<p>In this exercise, you will write recursive functions that operate on lists. These lists are represented as instances of the <code>IntList</code> class. An <code>IntList</code> can be either:</p>
+<ul>
+<li><code>IntNil()</code>, which represents an empty list,</li>
+<li><code>IntCons(<var>head</var>, <var>tail</var>)</code>, which represents a non-empty list starting with <code>head</code> (an integer) and continuing with <code>tail</code> (a list of integers).</li>
+</ul>
+<p>Hence, the list <code>1, 2</code> is represented by <code>IntCons(1, IntCons(2, IntNil()))</code>.</p>
+<p><code>IntList</code> objects have three operations — <code>.head</code>, <code>.tail</code>, and <code>.isEmpty</code> — demonstrated in the following REPL session:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-keyword">import</span> recursion.*
+scala&gt; <span class="hljs-type">IntCons</span>(<span class="hljs-number">2</span>, <span class="hljs-type">IntNil</span>()).head
+<span class="hljs-keyword">val</span> res0: <span class="hljs-type">Int</span> = <span class="hljs-number">2</span>
+scala&gt; <span class="hljs-type">IntCons</span>(<span class="hljs-number">2</span>, <span class="hljs-type">IntNil</span>()).tail
+<span class="hljs-keyword">val</span> res1: recursion.<span class="hljs-type">IntList</span> = <span class="hljs-type">IntNil</span>()
+scala&gt; <span class="hljs-keyword">val</span> oneTwo = <span class="hljs-type">IntCons</span>(<span class="hljs-number">1</span>, <span class="hljs-type">IntCons</span>(<span class="hljs-number">2</span>, <span class="hljs-type">IntNil</span>()))
+<span class="hljs-keyword">val</span> oneTwo: recursion.<span class="hljs-type">IntCons</span> = <span class="hljs-type">IntCons</span>(<span class="hljs-number">1</span>,<span class="hljs-type">IntCons</span>(<span class="hljs-number">2</span>,<span class="hljs-type">IntNil</span>()))
+scala&gt; oneTwo.isEmpty
+<span class="hljs-keyword">val</span> res2: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
+scala&gt; oneTwo.head
+<span class="hljs-keyword">val</span> res3: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+scala&gt; oneTwo.tail
+<span class="hljs-keyword">val</span> res4: recursion.<span class="hljs-type">IntList</span> = <span class="hljs-type">IntCons</span>(<span class="hljs-number">2</span>,<span class="hljs-type">IntNil</span>())
+scala&gt; oneTwo.tail.isEmpty
+<span class="hljs-keyword">val</span> res5: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
+scala&gt; oneTwo.tail.head
+<span class="hljs-keyword">val</span> res6: <span class="hljs-type">Int</span> = <span class="hljs-number">2</span>
+scala&gt; oneTwo.tail.tail
+<span class="hljs-keyword">val</span> res7: recursion.<span class="hljs-type">IntList</span> = <span class="hljs-type">IntNil</span>()
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; oneTwo.tail.tail.isEmpty
+<span class="hljs-keyword">val</span> res8: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+</code></p></pre><p></p>
+<p>These three operations are all that you need (in addition to recursion) to solve all of the exercises below.</p>
+<div class="hint">
+<p>In all of the exercises below, if you’re not sure where to start, ask yourself: what should my function return when given an empty list?  What about a non-empty list?</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#length-" id="length-"><code>length</code> ⭐️</a></h3>
+<p>Implement a function that computes the length of an <code>IntList</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">length</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<div class="hint">
+<p>A linked list is a bit like a <a href="https://en.wikipedia.org/wiki/Matryoshka_doll">Matryoshka doll</a> (called a “poupée russe” in French): you have to open the larger one to access the smaller ones inside.  So ask yourself: how would you count how many nested dolls a large Matryoshka doll contains?  Can you translate this process into code?</p>
+</div>
+<div class="hint">
+<p>In class, you learned the substitution model.  On paper, try evaluating the expression <code>length(IntCons(1, IntCons(2, IntCons(3, IntNil()))))</code> using the substitution model.  Use this for inspiration to implement <code>length</code>.</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#allpositiveorzero-" id="allpositiveorzero-"><code>allPositiveOrZero</code> ⭐️</a></h3>
+<p>Implement a function that determines if all values in an <code>IntList</code> are positive or zero:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">allPositiveOrZero</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Boolean</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<p>What should this function return for an empty list?  Why?</p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#countpositive" id="countpositive"><code>countPositive</code></a></h3>
+<p>Implement a function that counts the number of positive values in an <code>IntList</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">countPositive</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#sum" id="sum"><code>sum</code></a></h3>
+<p>Implement a function that computes the sum of all elements in an <code>IntList</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#product" id="product"><code>product</code></a></h3>
+<p>Implement a function that computes the product of all elements in an <code>IntList</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">product</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<div class="hint">
+<p>There are multiple reasonable choices for empty lists, but one leads to a simpler function.  Can you figure out which?</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#anyodd" id="anyodd"><code>anyOdd</code></a></h3>
+<p>Implement a function that determines if any value in an <code>IntList</code> is odd:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">anyOdd</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Boolean</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<div class="hint">
+<p>You can use <code>x % 2 == 0</code> to check whether a number is even, but does it work to use <code>x % 2 == 1</code> to check whether a number is odd?</p>
+</div>
+<p>What should this function return for an empty list?  Why?</p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#decrement" id="decrement"><code>decrement</code></a></h3>
+<p>Implement a function that creates a new list whose values correspond to the ones in the original list, decremented by one:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decrement</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<details class="hint">
+<summary>Hint</summary>
+<p>This exercise requires you to construct a new list!  Use the <code>IntNil()</code> and <code>IntCons()</code> constructors for that purpose, and follow the structure of the original list.</p>
+</details>
+<details class="hint">
+<summary>Hint</summary>
+<p>Think of the structure of the computation: how would it look with Matryoshka dolls?  In particular, think of what you need to do if you are given an empty list, and separately of what to do if you are given a non-empty list.</p>
+</details>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#collecteven-" id="collecteven-"><code>collectEven</code> ⭐️</a></h3>
+<p>Write a function that collects all even values from an <code>IntList</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">collectEven</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#min" id="min"><code>min</code></a></h3>
+<p>Write a function <code>min</code> that retrieves the minimum of a list.  If <code>min</code> is called on an empty list, it should throw an <code>IllegalArgumentException</code> using <code>throw IllegalArgumentException("Empty list!")</code>.</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">min</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#increment-" id="increment-"><code>increment</code> ⭐️</a></h3>
+<p>Implement a function that creates a new list whose values correspond to the ones in the original list incremented by one:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">increment</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#subtract" id="subtract"><code>subtract</code></a></h3>
+<p>Implement a function that performs right-associative subtraction. That is, <code>1, 2, 3, 4, 5</code> should become <code>1 - (2 - (3 - (4 - 5))) = 3</code>.</p>
+<p>If <code>subtract</code> is called on an empty list, it should throw an <code>IllegalArgumentException</code> using <code>throw IllegalArgumentException("Empty list!")</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subtract</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#removeodd-" id="removeodd-"><code>removeOdd</code> ⭐️</a></h3>
+<p>Write a function that creates a new list with all odd values removed:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">removeOdd</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<p>Can you find an algebraic relationship between <code>collectEven</code> and <code>removeOdd</code>?</p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#counteven" id="counteven"><code>countEven</code></a></h3>
+<p>Implement a function that counts the number of even values in an <code>IntList</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">countEven</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<p>Could you write <code>countEven</code> using <code>collectEven</code> and <code>length</code>?</p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#multiplyby2" id="multiplyby2"><code>multiplyBy2</code></a></h3>
+<p>Implement a function that creates a new list whose values correspond to the ones in the original list multiplied by two:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">multiplyBy2</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#anynegative" id="anynegative"><code>anyNegative</code></a></h3>
+<p>Implement a function that determines if any value in an <code>IntList</code> is negative:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">anyNegative</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Boolean</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#alleven" id="alleven"><code>allEven</code></a></h3>
+<p>Implement a function that determines if all values in an <code>IntList</code> are even:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">allEven</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Boolean</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#multiplyodd" id="multiplyodd"><code>multiplyOdd</code></a></h3>
+<p>Implement a function that computes the product of all odd numbers in an <code>IntList</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">multiplyOdd</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#horner-" id="horner-"><code>horner</code> ⭐️</a></h3>
+<p>Given a polynomial:</p>
+<p><span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>a</mi><mn>0</mn></msub><mo>+</mo><msub><mi>a</mi><mn>1</mn></msub><mi>x</mi><mo>+</mo><msub><mi>a</mi><mn>2</mn></msub><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msub><mi>a</mi><mn>3</mn></msub><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mo>⋯</mo><mo>+</mo><msub><mi>a</mi><mi>n</mi></msub><msup><mi>x</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">a_0 + a_1x + a_2x^2 + a_3x^3 + \cdots + a_nx^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.7333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.7333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 1.0141em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8641em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 1.0141em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8641em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.6667em; vertical-align: -0.0833em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.8644em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.7144em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>We represent it as a list of coefficients <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>a</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>a</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>a</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo> <mo separator="true">,</mo><msub><mi>a</mi><mi>n</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[a_0, a_1, a_2, \cdots, a_n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mclose">]</span></span></span></span></span>.</p>
+<p>Using the <em>Horner’s rule</em>:</p>
+<p><span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>a</mi><mn>0</mn></msub><mo>+</mo><mi>x</mi><mo fence="false" stretchy="true" minsize="2.4em" maxsize="2.4em">(</mo><msub><mi>a</mi><mn>1</mn></msub><mo>+</mo><mi>x</mi><mo fence="false" stretchy="true" minsize="1.8em" maxsize="1.8em">(</mo><msub><mi>a</mi><mn>2</mn></msub><mo>+</mo><mi>x</mi><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><msub><mi>a</mi><mn>3</mn></msub><mo>+</mo><mo>⋯</mo><mo>+</mo><mi>x</mi><mo stretchy="false">(</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>x</mi> <msub><mi>a</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>⋯</mo><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo><mo fence="false" stretchy="true" minsize="1.8em" maxsize="1.8em">)</mo><mo fence="false" stretchy="true" minsize="2.4em" maxsize="2.4em">)</mo></mrow><annotation encoding="application/x-tex">a_0 + x \bigg(a_1 + x \Big(a_2 + x \big(a_3 + \cdots + x(a_{n-1} + x \, a_n) \cdots \big) \Big) \bigg)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.7333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.4em; vertical-align: -0.95em;"></span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 1.8em; vertical-align: -0.65em;"></span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 1.2em; vertical-align: -0.35em;"></span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.6667em; vertical-align: -0.0833em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2083em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.4em; vertical-align: -0.95em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="delimsizing size1">)</span></span><span class="mord"><span class="delimsizing size2">)</span></span><span class="mord"><span class="delimsizing size3">)</span></span></span></span></span></span></span></p>
+<p>Write a function that evaluates a polynomial given its list of coefficients and a value for <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></span>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">horner</span></span>(x: <span class="hljs-type">Int</span>, l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#capat0" id="capat0"><code>capAt0</code></a></h3>
+<p>Implement a function that creates a copy of a list with all numbers greater than 0 replaced with zeroes.</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">capAtZero</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#removezeroes" id="removezeroes"><code>removeZeroes</code></a></h3>
+<p>Implement a function that creates a copy of a list with all zeroes removed.</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">removeZeroes</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#reverseappend" id="reverseappend"><code>reverseAppend</code></a></h3>
+<p>Implement a function that appends the reversed version of an <code>IntList</code> to another.  For example, calling <code>reverseAppend</code> with the lists <code>1, 2, 3</code> and <code>7, 8, 9</code> should produce <code>3, 2, 1, 7, 8, 9</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverseAppend</span></span>(l1: <span class="hljs-type">IntList</span>, l2: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#reverse-" id="reverse-"><code>reverse</code> ⭐️</a></h3>
+<p>Implement a function that reverses an <code>IntList</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverse</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<details class="hint">
+<summary>Hint</summary>
+<p>Consider reusing <code>reverseAppend</code>.</p>
+</details>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#takewhilepositive" id="takewhilepositive"><code>takeWhilePositive</code></a></h3>
+<p>Implement a function that creates a new list containing the same elements as its input list, except that it discards every number starting from the first nonpositive number (either 0 or negative).  That is, <code>1, 2, -3, 4</code> should produce just <code>1, 2</code>.</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">takeWhilePositive</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#append" id="append"><code>append</code></a></h3>
+<p>Implement a function that concatenates two lists:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">append</span></span>(l1: <span class="hljs-type">IntList</span>, l2: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<p>Bonus: Can you write it using just <code>reverse</code> and <code>reverseAppend</code>?</p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#collectmultiples" id="collectmultiples"><code>collectMultiples</code></a></h3>
+<p>Write a function that collects all the multiples of an integer <code>d</code> in a list <code>l</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">collectMultiples</span></span>(d: <span class="hljs-type">Int</span>, l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#last" id="last"><code>last</code></a></h3>
+<p>Implement a function that retrieves the last element from an <code>IntList</code>.</p>
+<p>If <code>last</code> is called on an empty list, it should throw an <code>IllegalArgumentException</code> using <code>throw IllegalArgumentException("Empty list!")</code>.</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">last</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#init" id="init"><code>init</code></a></h3>
+<p>Implement a function that creates a copy of an <code>IntList</code> with the last element removed (this function is sometimes called <code>butlast</code>).</p>
+<p>If <code>init</code> is called on an empty list, it should throw an <code>IllegalArgumentException</code> using <code>throw IllegalArgumentException("Empty list!")</code>.</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init</span></span>(l: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#minmax-" id="minmax-"><code>minMax</code> ⭐️</a></h3>
+<p>The goal of this exercise is to write a function that retrieves the smallest and largest elements from an <code>IntList</code> as a pair.</p>
+<p>Because your functions must return 2 values, you will need to return a <dfn>pair</dfn>. A pair containing the integers 1 and 2 is written as <code>(1, 2)</code>. Similarly, the <em>type</em> of a pair containing two integers is written as <code>(Int, Int)</code>. Here is a REPL session demonstrating how to create and use pairs:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-keyword">val</span> pair = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+<span class="hljs-keyword">val</span> pair: (<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>) = (<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)
+scala&gt; pair._1
+<span class="hljs-keyword">val</span> res9: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+scala&gt; pair._2
+<span class="hljs-keyword">val</span> res10: <span class="hljs-type">Int</span> = <span class="hljs-number">2</span>
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-keyword">val</span> (first, second) = pair
+<span class="hljs-keyword">val</span> first: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">val</span> second: <span class="hljs-type">Int</span> = <span class="hljs-number">2</span>
+</code></p></pre><p></p>
+<p>To find the smallest or largest of two integers, you can use the <code>scala.math.min</code> and <code>scala.math.max</code> functions.</p>
+<p>If <code>minMax</code> is called on an empty list, it should throw an <code>IllegalArgumentException</code> using <code>throw IllegalArgumentException("Empty list!")</code>.</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">minMax</span></span>(l: <span class="hljs-type">IntList</span>): (<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>) =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#lists-as-sets" id="lists-as-sets">Lists as sets</a></h2>
+<p>Lists are ordered collections of objects; as a result, most set operations can be defined on them too:</p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#contains-" id="contains-"><code>contains</code> ⭐️</a></h3>
+<p>Write a <code>contains(l, n)</code> function that checks whether list <code>l</code> contains value <code>n</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">contains</span></span>(l: <span class="hljs-type">IntList</span>, n: <span class="hljs-type">Int</span>): <span class="hljs-type">Boolean</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#issubset" id="issubset"><code>isSubset</code></a></h3>
+<p>Write an <code>isSubset(l, L)</code> function that checks whether list <code>l</code> is a subset of list <code>L</code> (that is, all elements of <code>l</code> are also contained in <code>L</code>):</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isSubset</span></span>(l: <span class="hljs-type">IntList</span>, <span class="hljs-type">L</span>: <span class="hljs-type">IntList</span>): <span class="hljs-type">Boolean</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#intersection" id="intersection"><code>intersection</code></a></h3>
+<p>Write an <code>intersection(l, L)</code> function that constructs a new list whose elements are the same as those of <code>l</code> in the same order, but with all elements <em>not contained</em> in <code>L</code> removed:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">intersection</span></span>(l: <span class="hljs-type">IntList</span>, <span class="hljs-type">L</span>: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#difference-" id="difference-"><code>difference</code> ⭐️</a></h3>
+<p>Write a <code>difference(l, L)</code> function that constructs a new list whose elements are the same as those of <code>l</code> in the same order, but with all elements <em>contained</em> in <code>L</code> removed:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">difference</span></span>(l: <span class="hljs-type">IntList</span>, <span class="hljs-type">L</span>: <span class="hljs-type">IntList</span>): <span class="hljs-type">IntList</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#recursion-on-trees" id="recursion-on-trees">Recursion on trees</a></h2>
+<p>Now, we’ll explore recursion on <em>binary trees</em>. A binary tree is a tree where each node has at most two children. An <code>IntTree</code> can be either:</p>
+<ul>
+<li><code>IntEmptyTree()</code>, which represents an empty tree,</li>
+<li><code>IntBranch(<var>value</var>, <var>left</var>, <var>right</var>)</code>: which represents a node with value <code>value</code> (an integer) and two children <code>left</code> and <code>right</code> (trees of integers).</li>
+</ul>
+<p>Hence, a tree with two non-empty nodes, a root node with value <code>1</code> with a left child with value <code>2</code>, is represented by <code>IntBranch(1, IntBranch(2, IntEmptyTree(), IntEmptyTree()), IntEmptyTree())</code>.</p>
+<p><code>IntTree</code> objects have four operations — <code>.value</code>, <code>.left</code>, <code>.right</code> and <code>.isEmpty</code> — demonstrated in the following REPL session:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-keyword">import</span> recursion.*
+scala&gt; <span class="hljs-type">IntBranch</span>(<span class="hljs-number">2</span>, <span class="hljs-type">IntEmptyTree</span>(), <span class="hljs-type">IntEmptyTree</span>()).value
+<span class="hljs-keyword">val</span> res11: <span class="hljs-type">Int</span> = <span class="hljs-number">2</span>
+scala&gt; <span class="hljs-type">IntBranch</span>(<span class="hljs-number">2</span>, <span class="hljs-type">IntEmptyTree</span>(), <span class="hljs-type">IntEmptyTree</span>()).left
+<span class="hljs-keyword">val</span> res12: recursion.<span class="hljs-type">IntTree</span> = <span class="hljs-type">IntEmptyTree</span>()
+scala&gt; <span class="hljs-type">IntBranch</span>(<span class="hljs-number">2</span>, <span class="hljs-type">IntEmptyTree</span>(), <span class="hljs-type">IntEmptyTree</span>()).right
+<span class="hljs-keyword">val</span> res13: recursion.<span class="hljs-type">IntTree</span> = <span class="hljs-type">IntEmptyTree</span>()
+scala&gt; <span class="hljs-keyword">val</span> tree = <span class="hljs-type">IntBranch</span>(<span class="hljs-number">1</span>, <span class="hljs-type">IntBranch</span>(<span class="hljs-number">2</span>, <span class="hljs-type">IntEmptyTree</span>(), <span class="hljs-type">IntEmptyTree</span>()), <span class="hljs-type">IntEmptyTree</span>())
+<span class="hljs-keyword">val</span> tree: recursion.<span class="hljs-type">IntBranch</span> = <span class="hljs-type">IntBranch</span>(<span class="hljs-number">1</span>,<span class="hljs-type">IntBranch</span>(<span class="hljs-number">2</span>,<span class="hljs-type">IntEmptyTree</span>(),<span class="hljs-type">IntEmptyTree</span>()),<span class="hljs-type">IntEmptyTree</span>())
+scala&gt; tree.isEmpty
+<span class="hljs-keyword">val</span> res14: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
+scala&gt; tree.value
+<span class="hljs-keyword">val</span> res15: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+scala&gt; tree.left
+<span class="hljs-keyword">val</span> res16: recursion.<span class="hljs-type">IntTree</span> = <span class="hljs-type">IntBranch</span>(<span class="hljs-number">2</span>,<span class="hljs-type">IntEmptyTree</span>(),<span class="hljs-type">IntEmptyTree</span>())
+scala&gt; tree.left.isEmpty
+<span class="hljs-keyword">val</span> res17: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
+scala&gt; tree.left.value
+<span class="hljs-keyword">val</span> res18: <span class="hljs-type">Int</span> = <span class="hljs-number">2</span>
+scala&gt; tree.left.left
+<span class="hljs-keyword">val</span> res19: recursion.<span class="hljs-type">IntTree</span> = <span class="hljs-type">IntEmptyTree</span>()
+scala&gt; tree.left.right
+<span class="hljs-keyword">val</span> res20: recursion.<span class="hljs-type">IntTree</span> = <span class="hljs-type">IntEmptyTree</span>()
+scala&gt; tree.right
+<span class="hljs-keyword">val</span> res21: recursion.<span class="hljs-type">IntTree</span> = <span class="hljs-type">IntEmptyTree</span>()
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; tree.right.isEmpty
+<span class="hljs-keyword">val</span> res22: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+</code></p></pre><p></p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#treesize" id="treesize"><code>treeSize</code></a></h3>
+<p>Implement a function that computes the <em>size</em> of an <code>IntTree</code>. The size of a tree is the number of nodes it contains.</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">treeSize</span></span>(t: <span class="hljs-type">IntTree</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/treeOps.scala</p>
+</div>
+<div class="hint">
+<p>Here too, the substitution model can help: start with an example tree, and ask yourself how to “reduce” the expression <code>treeSize(example)</code> step by step.</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#treedepth-" id="treedepth-"><code>treeDepth</code> ⭐️</a></h3>
+<p>Implement a function that computes the <em>depth</em> of an <code>IntTree</code>. The depth of a tree is the number of edges on the longest path between the root and a leaf. Our example tree above has a depth of 2.</p>
+<p>To find the largest of two integers, you can use the  <code>scala.math.max</code> function.</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">treeDepth</span></span>(t: <span class="hljs-type">IntTree</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/treeOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#treesum-" id="treesum-"><code>treeSum</code> 🧪</a></h3>
+<p>Implement a function that computes the <em>sum</em> of all values in an <code>IntTree</code>, similarly to the <code>sum</code> function for <code>IntList</code>s:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">treeSum</span></span>(t: <span class="hljs-type">IntTree</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/treeOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#treealleven" id="treealleven"><code>treeAllEven</code></a></h3>
+<p>Implement a function that determines if all values in an <code>IntTree</code> are even:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">treeAllEven</span></span>(t: <span class="hljs-type">IntTree</span>): <span class="hljs-type">Boolean</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/treeOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#treeincrement-" id="treeincrement-"><code>treeIncrement</code> ⭐️</a></h3>
+<p>Implement a function that increases each value in an <code>IntTree</code> by one:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">treeIncrement</span></span>(t: <span class="hljs-type">IntTree</span>): <span class="hljs-type">IntTree</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/treeOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#treeshow-" id="treeshow-"><code>treeShow</code> 🧪</a></h3>
+<p>Implement a function that creates a string containing all values in an <code>IntTree</code>, in <a href="https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR"><em>pre-order</em></a>. This means that the value of each node must be printed before its children, and then the values of the left subtree must be printed before the values of the right subtree.</p>
+<p>For our example tree, the output should be:</p>
+<pre><code>1
+2
+</code></pre>
+<p>Your function must return a <code>String</code>.</p>
+<p>To concatenate two strings, you can use the <code>+</code> operator:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-string">"Hello "</span> + <span class="hljs-string">"Ada"</span>
+<span class="hljs-keyword">val</span> res23: <span class="hljs-type">String</span> = <span class="hljs-type">Hello</span> <span class="hljs-type">Ada</span>
+</code></pre>
+<p>To convert an integer to a string, you can use the <code>toString</code> method:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-number">3.</span>toString
+<span class="hljs-keyword">val</span> res24: <span class="hljs-type">String</span> = <span class="hljs-number">3</span>
+</code></pre>
+<p>In Scala, like in Java, line breaks in strings are represented by the <code>\n</code> character.</p>
+<p>Implement <code>treeShow</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">treeShow</span></span>(t: <span class="hljs-type">IntTree</span>): <span class="hljs-type">String</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/treeOps.scala</p>
+</div>
+<p>How would you modify your function to collect the values in <a href="https://en.wikipedia.org/wiki/Tree_traversal#Post-order,_LRN"><em>post-order</em></a>?  Try comparing the execution of the original pre-order function and the post-order variant on an example, using the substitution model.</p>
+<p>Finally, how would you modify your function to collect the values <a href="https://en.wikipedia.org/wiki/Tree_traversal#In-order,_LNR"><em>in-order</em></a>?</p>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#recursion-on-strings" id="recursion-on-strings">Recursion on Strings</a></h2>
+<p>In this exercise, you will write recursive functions that operate on strings. A string can be thought of as a list of characters. Like lists, we can apply the same structural recursion principles to strings. Each string has the <code>isEmpty</code>, <code>head</code> and <code>tail</code> methods similar to <code>IntList</code>s:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-string">"Hello Ada"</span>.tail
+<span class="hljs-keyword">val</span> res25: <span class="hljs-type">String</span> = ello <span class="hljs-type">Ada</span>
+scala&gt; <span class="hljs-string">"Hello Ada"</span>.tail.head
+<span class="hljs-keyword">val</span> res26: <span class="hljs-type">Char</span> = e
+scala&gt; <span class="hljs-string">"Hello Ada"</span>.tail.isEmpty
+<span class="hljs-keyword">val</span> res27: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
+scala&gt; <span class="hljs-string">" "</span>.isEmpty
+<span class="hljs-keyword">val</span> res28: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-string">""</span>.isEmpty
+<span class="hljs-keyword">val</span> res29: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+</code></p></pre><p></p>
+<p>Note the type of the <code>head</code> method: it returns a <code>Char</code>, not a <code>String</code>. A <code>Char</code> is a single character, whereas a <code>String</code> is a sequence of characters. A <code>String</code> is surrounded by double quotes, whereas a <code>Char</code> is surrounded by single quotes.</p>
+<p>For the following exercises, you cannot use any other method than <code>isEmpty</code>, <code>head</code> and <code>tail</code> on strings.</p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#stringlength" id="stringlength"><code>stringLength</code></a></h3>
+<p>Implement a function that computes the length of a string:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stringLength</span></span>(s: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/stringOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#capitalizestring" id="capitalizestring"><code>capitalizeString</code></a></h3>
+<p>Implement a function that capitalizes every character in a string:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">capitalizeString</span></span>(s: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/stringOps.scala</p>
+</div>
+<p>You will need the methods <code>toUpper</code> and <code>toString</code> of <code>Char</code>:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; 'c'.toUpper
+<span class="hljs-keyword">val</span> res30: <span class="hljs-type">Char</span> = <span class="hljs-type">C</span>
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; ‘c’.toString
+<span class="hljs-keyword">val</span> res31: <span class="hljs-type">String</span> = c
+</code></p></pre><p></p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#isblank" id="isblank"><code>isBlank</code></a></h3>
+<p>Implement a function that checks if a string is blank (i.e., if it only contains whitespace characters or is empty):</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isBlank</span></span>(s: <span class="hljs-type">String</span>): <span class="hljs-type">Boolean</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/stringOps.scala</p>
+</div>
+<p>You may find the <code>.isWhitespace</code> method of <code>Char</code> useful:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; 'c'.isWhitespace
+<span class="hljs-keyword">val</span> res29: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; ’ ’.isWhitespace
+<span class="hljs-keyword">val</span> res30: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+</code></p></pre><p></p>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#wordcount-" id="wordcount-"><code>wordCount</code> ⭐️</a></h3>
+<p>In this exercise, we call “word” any sequence of non-whitespace characters.  For example, <code>" Bonjour ! "</code> has two words.  Implement a function that counts the number of words in a string:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wordCount</span></span>(s: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/stringOps.scala</p>
+</div>
+<p>Example run:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; wordCount(<span class="hljs-string">"  hello "</span>)
+<span class="hljs-keyword">val</span> res32: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; wordCount(<span class="hljs-string">"  hello   world !"</span>)
+<span class="hljs-keyword">val</span> res33: <span class="hljs-type">Int</span> = <span class="hljs-number">3</span>
+</code></p></pre><p></p>
+<p>As before, you may use <code>c.isWhitespace</code> to check if a character <code>c</code> counts as whitespace.</p>
+<details class="hint">
+<summary>Hint</summary>
+<p>Consider defining a helper function <code>discardWord</code> that skips over the first word of a string and returns the corresponding suffix (in other words, <code>discardWord("abc def")</code> should return <code>" def"</code>).</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">discardWord</span></span>(s: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/stringOps.scala</p>
+</div>
+</details>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#caesarcipher-" id="caesarcipher-"><code>caesarCipher</code> ⭐️</a></h3>
+<p>Implement a function that encrypts a string using the <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a> method. The Caesar cipher is an ancient form of encryption, where each letter in a string is shifted by a fixed number of places down the alphabet.</p>
+<p>In this exercise, we assume that the input string only contains English lowercase letters. In addition, we shift the letters in a circular way, so that <code>z</code> shifted by 1 becomes <code>a</code>, <code>z</code> shifted by 2 becomes <code>b</code>, etc.</p>
+<p>Every English letter has a corresponding <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> and <a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> code which is an integer value. Codes of English letters are the same in ASCII and Unicode; the English lowercase letter ‘a’ corresponds to the number 97, ‘b’ is 98, and so on up to ‘z’ which is 122.</p>
+<p>In Scala, you can get the ASCII value of an English letter using the <code>toInt</code> method, and convert it back to a character using the <code>toChar</code> method:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; 'a'.toInt
+<span class="hljs-keyword">val</span> res34: <span class="hljs-type">Int</span> = <span class="hljs-number">97</span>
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-number">97.</span>toChar
+<span class="hljs-keyword">val</span> res35: <span class="hljs-type">Char</span> = a
+</code></p></pre><p></p>
+<p>Here is a REPL session demonstrating how to encrypt a single character:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-keyword">val</span> aCode = 'a'.toInt
+     | <span class="hljs-keyword">val</span> zCode = 'z'.toInt
+     | <span class="hljs-keyword">val</span> numLetters = zCode - aCode + <span class="hljs-number">1</span>
+<span class="hljs-keyword">val</span> aCode: <span class="hljs-type">Int</span> = <span class="hljs-number">97</span>
+<span class="hljs-keyword">val</span> zCode: <span class="hljs-type">Int</span> = <span class="hljs-number">122</span>
+<span class="hljs-keyword">val</span> numLetters: <span class="hljs-type">Int</span> = <span class="hljs-number">26</span>
+scala&gt; <span class="hljs-keyword">val</span> dCode = ‘d’.toInt
+<span class="hljs-keyword">val</span> dCode: <span class="hljs-type">Int</span> = <span class="hljs-number">100</span>
+scala&gt; <span class="hljs-keyword">val</span> dPlus3 = (dCode + <span class="hljs-number">3</span> - aCode) % numLetters + aCode
+<span class="hljs-keyword">val</span> dPlus3: <span class="hljs-type">Int</span> = <span class="hljs-number">103</span>
+scala&gt; dPlus3.toChar
+<span class="hljs-keyword">val</span> res36: <span class="hljs-type">Char</span> = g
+scala&gt; <span class="hljs-keyword">val</span> dPlus25 = (dCode + <span class="hljs-number">25</span> - aCode) % numLetters + aCode
+<span class="hljs-keyword">val</span> dPlus25: <span class="hljs-type">Int</span> = <span class="hljs-number">99</span>
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; dPlus25.toChar.toString
+<span class="hljs-keyword">val</span> res37: <span class="hljs-type">String</span> = c
+</code></p></pre><p></p>
+<p>And here are two additional examples of how your <code>caesarCipher</code> function should behave:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; caesarCipher(<span class="hljs-string">"abc"</span>, <span class="hljs-number">2</span>)
+<span class="hljs-keyword">val</span> res38: <span class="hljs-type">String</span> = cde
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; caesarCipher(<span class="hljs-string">"abz"</span>, <span class="hljs-number">3</span>)
+<span class="hljs-keyword">val</span> res39: <span class="hljs-type">String</span> = dec
+</code></p></pre><p></p>
+<p>Implement the <code>caesarCipher</code> function accordingly:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">caesarCipher</span></span>(s: <span class="hljs-type">String</span>, shift: <span class="hljs-type">Int</span>): <span class="hljs-type">String</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/stringOps.scala</p>
+</div>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#reversestring-" id="reversestring-"><code>reverseString</code> ⭐️</a></h3>
+<p>Implement a function that reverses a string:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverseString</span></span>(s: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/stringOps.scala</p>
+</div>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#polish-notation-" id="polish-notation-">Polish Notation 🔥</a></h2>
+<p>Polish Notation (PN) is a way to write arithmetic expressions where every operator comes before its operands. For example, instead of writing <code>3 + 4</code>, you would write <code>+ 3 4</code>.</p>
+<p>Your task is to implement a PN evaluator for an <code>IntList</code> where operators are represented by negative integers: we’ll deal with just addition and multiplication for now:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-keyword">val</span> <span class="hljs-type">Add</span> = <span class="hljs-number">-1</span>
+<span class="hljs-keyword">val</span> <span class="hljs-type">Multiply</span> = <span class="hljs-number">-2</span>
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<p>For example, the expression <code>3 + 4</code> would be represented as <code>IntCons(Add, IntCons(3, IntCons(4, IntNil())))</code> and the expression <code>3 * 4</code> would be represented as <code>IntCons(Mul, IntCons(3, IntCons(4, IntNil())))</code>.</p>
+<p>Here is a REPL session demonstrating how the <code>polishEval</code> function should behave:</p>
+<pre><code class="language-scala hljs" data-highlighted="yes">scala&gt; <span class="hljs-comment">// List:   [Add, 3, 4]</span>
+scala&gt; <span class="hljs-comment">// Prefix: + 3 4</span>
+scala&gt; <span class="hljs-comment">// Infix:  3 + 4</span>
+scala&gt; <span class="hljs-keyword">val</span> expr1 = <span class="hljs-type">IntCons</span>(<span class="hljs-type">Add</span>, <span class="hljs-type">IntCons</span>(<span class="hljs-number">3</span>, <span class="hljs-type">IntCons</span>(<span class="hljs-number">4</span>, <span class="hljs-type">IntNil</span>())))
+<span class="hljs-keyword">val</span> expr1: recursion.<span class="hljs-type">IntCons</span> = <span class="hljs-type">IntCons</span>(<span class="hljs-number">-1</span>,<span class="hljs-type">IntCons</span>(<span class="hljs-number">3</span>,<span class="hljs-type">IntCons</span>(<span class="hljs-number">4</span>,<span class="hljs-type">IntNil</span>())))
+scala&gt; polishEval(expr1)
+<span class="hljs-keyword">val</span> res40: (<span class="hljs-type">Int</span>, recursion.<span class="hljs-type">IntList</span>) = (<span class="hljs-number">7</span>,<span class="hljs-type">IntNil</span>())
+scala&gt; <span class="hljs-comment">// List:   [Multiply, Add, 5, 3, 4]</span>
+scala&gt; <span class="hljs-comment">// Prefix: * + 5 3 4</span>
+scala&gt; <span class="hljs-comment">// Infix:  (5 + 3) * 4</span>
+scala&gt; <span class="hljs-keyword">val</span> expr2 = <span class="hljs-type">IntCons</span>(<span class="hljs-type">Multiply</span>, <span class="hljs-type">IntCons</span>(<span class="hljs-type">Add</span>, <span class="hljs-type">IntCons</span>(<span class="hljs-number">5</span>, <span class="hljs-type">IntCons</span>(<span class="hljs-number">3</span>, <span class="hljs-type">IntCons</span>(<span class="hljs-number">4</span>, <span class="hljs-type">IntNil</span>())))))
+<span class="hljs-keyword">val</span> expr2: recursion.<span class="hljs-type">IntCons</span> = <span class="hljs-type">IntCons</span>(<span class="hljs-number">-2</span>,<span class="hljs-type">IntCons</span>(<span class="hljs-number">-1</span>,<span class="hljs-type">IntCons</span>(<span class="hljs-number">5</span>,<span class="hljs-type">IntCons</span>(<span class="hljs-number">3</span>,<span class="hljs-type">IntCons</span>(<span class="hljs-number">4</span>,<span class="hljs-type">IntNil</span>())))))
+</code><p><code class="language-scala hljs" data-highlighted="yes">scala&gt; polishEval(expr2)._1
+<span class="hljs-keyword">val</span> res41: <span class="hljs-type">Int</span> = <span class="hljs-number">32</span>
+</code></p></pre><p></p>
+<p>Before starting to write code, think about how you would evaluate a PN expression. You’ll need to look at the first element of the list to determine what to do next. If it’s an operator, you’ll need to evaluate its arguments (where are they?). If it’s a number, you’ll need to return it. If it’s not a number or an operator, you’ll need to throw an <code>IllegalArgumentException</code> exception.</p>
+<p>Write a few examples on paper and try to figure out how you would evaluate them. Then, try to translate your steps into pseudo-code.</p>
+<p>Only once you have a clear idea of how to solve the problem, start implementing <code>polishEval</code>:</p>
+<div class="snippet">
+<pre><code class="language-scala hljs" data-highlighted="yes"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">polishEval</span></span>(l: <span class="hljs-type">IntList</span>): (<span class="hljs-type">Int</span>, <span class="hljs-type">IntList</span>) =
+  ???
+</code></pre>
+<p class="snippet-path">recursion/src/main/scala/recursion/listOps.scala</p>
+</div>
+<h1><a href="https://cs-214.epfl.ch/exercises/week/1/#git-i-single-user-version-control" id="git-i-single-user-version-control">Git I: Single-user version control</a></h1>
+<p>Here are a few questions, exercises, and resources to guide your exploration of version control systems.</p>
+<div class="note">
+<p>If you ask a complex Git question on Ed, it will often be much easier for us to help you debug if you include a copy of your repo.  For this, post your repo as a <code>git bundle</code> in a private Ed post (look up the documentation of <code>git bundle</code> to know what it does).</p>
+</div>
+<div class="warning">
+<p>Make sure you have good backups before experimenting with your computer on the command line!</p>
+</div>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#browsing-documentation" id="browsing-documentation">Browsing documentation</a></h2>
+<p>The official Git tutorial is distributed as manual (<code>man</code>) pages.  On macOS, GNU/Linux, and WSL, you can simply type <code>man <i>command</i></code> to get more information about <code><i>command</i></code>.  On Windows, you may prefer to browse the <a href="https://git-scm.com/doc">online Git documentation</a> instead.</p>
+<ol>
+<li>
+<p>Locate the commands that we discussed during the lecture in <code>man gittutorial</code>, <code>man gittutorial-2</code>, and <code>man giteveryday</code>.</p>
+</li>
+<li>
+<p>Look up concepts and commands you don’t know in <code>man gitglossary</code>.</p>
+</li>
+</ol>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#configuration-" id="configuration-">Configuration ⭐️</a></h2>
+<ol>
+<li>
+<p>To use Git, you need to configure your user name and email.  Look up the corresponding <code>git config</code> commands online, or follow the instructions in <code>man gittutorial</code>. This ensures that your commits carry the right author information.</p>
+</li>
+<li>
+<p><code>git commit</code> and other interactive commands sometimes need to open a text editor.  Use <code>git config</code> to set the <code>core.editor</code> variable globally to your preferred editor. (The demo given in class used Emacs.  On GNU/Linux, Git typically defaults to <code>nano</code>, which is reasonably intuitive, while on macOS it defaults to <code>vi</code>, which is great but not too beginner-friendly.  For this course, we recommend VSCode.)</p>
+</li>
+</ol>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#reproducing-the-first-git-demo" id="reproducing-the-first-git-demo">Reproducing the first Git demo</a></h2>
+<ol>
+<li>
+<p>⭐️ Re-watch the 15-minutes Git demo that was given at the end of the first Git lecture and follow along on your own terminal (use “Git bash” on Windows).  Which commands were necessary?  Which were just for demo purposes?  (If you run into any issues, try reading the corresponding manual pages.)</p>
+<p>(If you prefer to read, you can follow <a href="https://cs-214.epfl.ch/lectures/git-1/">this written transcript</a> instead.)</p>
+</li>
+<li>
+<p>Notice the file called <code>.gitignore</code>.  What is this file for?  What would <code>git status</code> have shown after <code>sbt run</code> if <code>sbt new</code> hadn’t created it? (Try it!  Replicate the commands, then delete <code>.gitignore</code> and see what <code>git status</code> shows.)</p>
+</li>
+</ol>
+<h3><a href="https://cs-214.epfl.ch/exercises/week/1/#browsing-history" id="browsing-history">Browsing history</a></h3>
+<ol>
+<li>
+<p>Clone a large repository, using the <code>git clone</code> command.  For example:</p>
+<pre><code>git clone https://github.com/microsoft/vscode.git
+</code></pre>
+</li>
+<li>
+<p>Read up on the <code>git blame</code> command.  What does it do?  Try it on the command line on a file in the repository you just cloned.</p>
+</li>
+<li>
+<p>Graphical interfaces can be useful to browse complex history.  Find out how to perform a <code>git blame</code> and a <code>git log</code> restricted to a set of lines in your favorite editor, as demonstrated at the end of the demo (the demo used Emacs with <code>magit</code> as the Git UI; you can use VSCode with the Gitlens plugin).</p>
+</li>
+</ol>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#tracking-history-and-creating-patches-" id="tracking-history-and-creating-patches-">Tracking history and creating patches ⭐️</a></h2>
+<ol>
+<li>
+<p>⭐️ Initialize a new git repository to hold a copy of your exercise solutions.  Make a commit after downloading your next set of exercises, and after completing each exercise.</p>
+</li>
+<li>
+<p>If you forget to commit between two exercises, find a Git command or a tool in the VSCode UI that lets you stage only part of your changes (<a href="https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging">hint</a>).</p>
+</li>
+<li>
+<p>⭐️ Use <code>git format-patch</code> to share the solution to one exercise with a classmate.  Use <code>git am</code> to apply a patch received from a classmate.</p>
+</li>
+<li>
+<p>🔥 What happens if you try to apply the patch after you’ve already started solving the same exercise?  Look up how to handle the resulting situation, which is known as a <em>conflict</em> in Git.</p>
+</li>
+</ol>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#exploring-large-codebases-" id="exploring-large-codebases-">Exploring large codebases ⭐️</a></h2>
+<ol>
+<li>
+<p>On your computer, locate at least one free software (“open source”) application that you use regularly, and find out how to get its source code.  Is it hosted in a Git repository?</p>
+</li>
+<li>
+<p>Many projects are hosted on Git platforms such Github or Gitlab.  Does Git require you to use such a platform?</p>
+</li>
+<li>
+<p>Clone a git repository of an application that you use and explore the history.  Find Git commands to answer the following questions:</p>
+<ol>
+<li>What happened in the last three days?</li>
+<li>Who contributed to writing the README file?</li>
+<li>What is the most recent commit that mentions a bug fix?  How did the fix work?  When was the buggy code introduced (in which commit?)  How long did the bug remain?</li>
+</ol>
+</li>
+<li>
+<p>🔥 Sometimes you want more information than Git alone can provide directly.  Find a way to answer the following questions:</p>
+<ol>
+<li>How many C source files does the repository contain?</li>
+<li>Which files had the most changes over the last 2 years?</li>
+<li>Which is the most commonly edited files in commits that mention a bugfix?</li>
+<li>Which was the largest commit (in terms of <em>changed</em> lines) in the last 3 months?</li>
+</ol>
+</li>
+</ol>
+<h2><a href="https://cs-214.epfl.ch/exercises/week/1/#being-a-good-gitizen" id="being-a-good-gitizen">Being a good Gitizen</a></h2>
+<ol>
+<li>
+<p>Browse a few popular repositories on Github or Gitlab.  Look in particular at the commit messages.  Do they use a consistent format?  If you’re not sure where to look, a good example is <a href="https://github.com/apache/spark">the Spark repository</a>.</p>
+</li>
+<li>
+<p>⭐️ Some projects take Git commits and change logs very seriously.  Pick a free software project and find its contributor guidelines.  What do they recommend doing for commits?  If you don’t find great examples, see <a href="https://www.gnu.org/prep/standards/html_node/Change-Logs.html">these GNU guidelines</a>, <a href="https://wiki.postgresql.org/wiki/Submitting_a_Patch">these PostgreSQL ones</a>, and <a href="https://git.kernel.org/pub/scm/git/git.git/tree/Documentation/SubmittingPatches">these from Git itself</a>.</p>
+</li>
+</ol>
+
+<p class="copyright"><a href="https://cs-214.epfl.ch/copyright.html">©&nbsp;2023–2025 EPFL. All rights reserved.</a></p>
+</main>
+</div>
+<script src="./Week 1_ Structural Recursion and Version Control_files/highlight.min.js.download"></script>
+<script src="./Week 1_ Structural Recursion and Version Control_files/scala.min.js.download"></script>
+<script src="./Week 1_ Structural Recursion and Version Control_files/katex.min.js.download"></script>
+<script src="./Week 1_ Structural Recursion and Version Control_files/auto-render.min.js.download"></script>
+<script src="./Week 1_ Structural Recursion and Version Control_files/scripts.js.download"></script>
+
+</body></html>
