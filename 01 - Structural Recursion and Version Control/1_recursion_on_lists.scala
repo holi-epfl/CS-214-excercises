@@ -10,7 +10,7 @@ def allPositiveOrZero(l: IntList): Boolean =
 
 //countPositive
 def countPositive(l: IntList): Int =
-    if l.isEmpty then 0 else (l.head > 0) + countPositive(l.tail)
+    if l.isEmpty then 0 else l.head > 0 + countPositive(l.tail)
 
 //sum
 def sum(l: IntList): Int =
