@@ -15,16 +15,16 @@ def sum(l: IntList): Int =
     if l.isEmpty then 0 else l.head + sum(l.tail)
 
 def product(l: IntList): Int =
-  ???
+    if l.isEmpty then 1 else l.head * product(l.tail)
 
-def anyOdd(l: IntList): Boolean =
-  ???
+def anyOdd(l: IntList): Boolean = 
+    if l.isEmpty then false else ((l.head % 2) || anyOdd(l.tail))
 
 def decrement(l: IntList): IntList =
-  ???
+    if l.isEmpty then l else IntCons(l.head-1, decrement(l.tail))
 
 def collectEven(l: IntList): IntList =
-  ???
+    if l.isEmpty then 0 else (l.head % 2 == 1) + collectEven(l.tail)
 
 def min(l: IntList): Int =
   ???
