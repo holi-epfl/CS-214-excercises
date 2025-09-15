@@ -17,9 +17,9 @@ def countEven(l: IntList): Int = associative(0, (x, acc) => (if x % 2 == 0 then 
 def multiplyOdd(l: IntList): Int = associative(1, (x, acc) => (if x % 2 != 0 then x else 1) * acc, l)
 
 
-def map(fn: Int => Int)(l: IntList): IntList = 
-  if l.isEmpty then IntNil()
-  else IntCons(fn(l.head), map(fn)(l))
+def map(fn: Int => Int, base: IntList = IntNil())(l: IntList): IntList = 
+  if l.isEmpty then base
+  else IntCons(fn(l.head), map(fn, base)(l))
 
 def increment(l: IntList) = map(x => x+1)(l)
 
@@ -28,6 +28,9 @@ def decrement(l: IntList) = map(x => x - 1)(l)
 def multiplyBy2(l: IntList) = map(x => 2 * x)(l)
 
 def capAtZero(l: IntList) = map(x => if x < 0 then x else 0)(l)
+
+def append(l1: IntList, l2: IntList) = map(x => x, l2)(l1)
+
 
 
 def filter(fn: Int => Boolean)(l: IntList): IntList = 
