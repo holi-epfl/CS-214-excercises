@@ -19,7 +19,7 @@ def multiplyOdd(l: IntList): Int = associative(1, (x, acc) => (if x % 2 != 0 the
 
 def map(fn: Int => Int, base: IntList = IntNil())(l: IntList): IntList = 
   if l.isEmpty then base
-  else IntCons(fn(l.head), map(fn, base)(l))
+  else IntCons(fn(l.head), map(fn, base)(l.tail))
 
 def increment(l: IntList) = map(x => x+1)(l)
 
@@ -65,7 +65,7 @@ def reduceRight(fn: (Int, Int) => Int)(l: IntList): Int =
     if l.tail.isEmpty then l.head
     else fn(l.head, reduceRight(fn)(l.tail))
 
-def substract(l: IntList) = reduceRight((x: Int, n: Int) => x - n)(l)
+def subtract(l: IntList) = reduceRight((x: Int, n: Int) => x - n)(l)
 
 def last(l: IntList) = reduceRight((x, n) => n)(l)
 
@@ -78,9 +78,9 @@ def search(exists: Boolean, fn: Int => Boolean)(l: IntList): Boolean =
     if fn(l.head) then exists
     else search(exists, fn)(l.tail)
 
-def allEven(l:IntList) = search(false, x => x % 2 == 0)(l)
+def allEven(l:IntList) = search(false, x => !(x % 2 == 0))(l)
 
-def allPositiveOrZero(l: IntList) = search(false, x => x >= 0)(l)
+def allPositiveOrZero(l: IntList) = search(false, x => !(x >= 0))(l)
 
 def contains(l:IntList, n:Int) = search(true, x => x == n)(l)
 
@@ -88,4 +88,5 @@ def anyOdd(l: IntList) = search(true, x => x % 2 != 0)(l)
 
 def anyNegative(l: IntList) = search(true, x => x < 0)(l)
 
-def isSubset(l: IntList, ll: IntList) = search(false, x => contains(ll, x))
+def isSubset(l: IntList, ll: IntList) = 
+  if ll.isEmpty then l.isEmpty else search(false, x => !contains(ll, x))(l)
